@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class ListingController extends Controller
 {
     public function index(Request $request) {
-        dd(request(['tag']), $request->tag, $request);
+//        dd(request(['tag']), $request->tag, $request);
         return view('listings.index', [
-            "listings" => Listing::latest()->filter(request(['tag']))->get()
+            "listings" => Listing::latest()->filter(request(['tag', 'search']))->get()
         ]);
     }
 
